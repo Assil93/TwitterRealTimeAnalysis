@@ -2,7 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `TwitterRealTimeAnalysis` package."""
-
+import unittest
+from TwitterAPI import TwitterAPI
+import boto3
+import json
+import ast
+import decimal
+import base64
+import time
+from sys import getsizeof
 import pytest
 
 from click.testing import CliRunner
@@ -36,3 +44,21 @@ def test_command_line_interface():
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
+
+def test_table_hashtags():
+    """Test le fonctionnement de la table hashtags."""
+    dynamodbA = boto3.resource(service_name='dynamodb', region_name='us-west-2')
+    tableA = dynamodbA.Table('hashtags')
+    responseA = tableA.scan()
+    for recordA in responseA['Items']:
+        testTableA = recordA['hashtag']
+    assert (getsizeof(testTableA) > 0)
+
+def test_table_fullName():
+    """Test le fonctionnement de la table fullName."""
+    dynamodbB = boto3.resource(service_name='dynamodb', region_name='us-west-2')
+    tableB = dynamodbB.Table('full_name')
+    responseB = tableB.scan()
+    for recordB in responseB['Items']:
+        testTableB = recordB['full_name']
+    assert (getsizeof(testTableB) > 0)
