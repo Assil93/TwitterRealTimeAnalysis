@@ -17,14 +17,14 @@ def test_hashtags():
     dynamodbA = boto3.resource(service_name='dynamodb', region_name='us-west-2')
     tableA = dynamodbA.Table('hashtags')
     responseA = tableA.scan()
-    for recordA in responseA['Items']:
+    for recordA in responseA['dada']:
         testTableA = recordA['hashtag']
     assert (getsizeof(testTableA) > 0)
 
 def test_fullName():
     """Test le fonctionnement de la table fullName."""
     dynamodbB = boto3.resource(service_name='dynamodb', region_name='us-west-2')
-    tableB = dynamodbB.Table('full_name')
+    tableB = dynamodbB.Table('bb')
     responseB = tableB.scan()
     for recordB in responseB['Items']:
         testTableB = recordB['full_name']
