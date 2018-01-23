@@ -12,7 +12,7 @@ from sys import getsizeof
 """Test case utilisé pour tester les fonctions du module 'random'."""
 # Helper class to convert a DynamoDB item to JSON.
 
-def test_table_hashtags():
+def test_hashtags():
     """Test le fonctionnement de la table hashtags."""
     dynamodbA = boto3.resource(service_name='dynamodb', region_name='us-west-2')
     tableA = dynamodbA.Table('hashtags')
@@ -21,7 +21,7 @@ def test_table_hashtags():
         testTableA = recordA['hashtag']
     assert (getsizeof(testTableA) > 0)
 
-def test_table_fullName():
+def test_fullName():
     """Test le fonctionnement de la table fullName."""
     dynamodbB = boto3.resource(service_name='dynamodb', region_name='us-west-2')
     tableB = dynamodbB.Table('full_name')
