@@ -1,0 +1,5 @@
+#consumer key, consumer secret, access token, access secret.
+consumer_key="dyGcHiPx2U4l232B2n7EF3zHL"
+consumer_secret="TG3VABJjXh8CCJtoZPukj5SUfBItTDE3xdWtGui6NebNVu8feo"
+access_token_key="948534702188716033-f91py9OPFYhXhTkys3R4AyLE047N6xI"
+access_token_secret="IpSXQzbO6O53KR9tAZFIY9sgNiBQ0ev3Rin9otEAoWcWv"
