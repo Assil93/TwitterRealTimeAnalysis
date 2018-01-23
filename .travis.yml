@@ -21,10 +21,14 @@ deploy:
     python: 2.7
     repo: Assil93/TwitterRealTimeAnalysis
     tags: true
-install: pip install -U tox-travis
+install: 
+-pip install .
+-pip install -r requirements_dev.txt
 language: python
 python:
 - 3.5
 - 3.4
 - 2.7
-script: tox
+script:
+-tox
+-pytest
